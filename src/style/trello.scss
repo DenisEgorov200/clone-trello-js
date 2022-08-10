@@ -3,11 +3,10 @@
     width: 100%;
     background: #0079bf;
 
-
-
     &__container {
         height: 100%;
         display: flex;
+        align-items: flex-start;
         overflow-x: auto;
         overflow-y: hidden;
         white-space: nowrap;
@@ -18,11 +17,14 @@
         height: 100%;
         display: inline-block;
 
-        &:not(:first-child) {
-            margin: 0 0 0 8px;
+        &:not(:last-child) {
+            margin: 0 8px 0 0;
         }
     }
     &__item {
+    }
+    &__add {
+        height: 32px;
     }
 }
 
@@ -95,3 +97,31 @@
     &__sample {
     }
 }
+
+
+.trello-add {
+    background-color: #ebecf0;
+    border-radius: 3px;
+    padding: 4px;
+    transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
+    &__btn {
+
+    }
+    &__icon {
+    }
+    &__input {
+        .is-idle & {
+            display: none;
+        }
+    }
+    &__controls {
+        .is-idle & {
+            display: none;
+        }
+    }
+    &__card {
+    }
+    &__close {
+    }
+}
+

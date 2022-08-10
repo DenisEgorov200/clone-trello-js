@@ -9,7 +9,7 @@
 <body>
 <div class="trello">
     <div class="trello__container">
-        <div class="trello__left">
+
             <ul class="trello__list">
                 <li class="trello__item trello-card">
                     <div class="trello-card__header">
@@ -80,13 +80,21 @@
                     </div>
                 </li>
             </ul>
-        </div>
-        <div class="trello__right">
-            <button class="trello__btn is-idle" id="addColumn">
-                <span class="trello-card__icon">+</span>
-                <span>Добавить еще одну колонку</span>
-            </button>
-        </div>
+
+            <div class="trello__btn trello-add is-idle">
+                <form>
+                    <button class="trello-add__btn">
+                        <span class="trello-add__icon">+</span>
+                        <span>Добавить еще одну колонку</span>
+                    </button>
+                    <input type="text" class="trello-add__input" placeholder="Ввести заголовок списка">
+                    <div class="trello-add__controls">
+                        <button class="trello-add__card" id="addColumn">Добавить список</button>
+                        <button class="trello-add__close">x</button>
+                    </div>                
+                </form>
+            </div>
+
     </div>
 </div>
 

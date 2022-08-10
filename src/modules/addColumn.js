@@ -1,19 +1,19 @@
+import { input } from '../modules/addTitleColumn';
+
 export const addColumnBtn = document.getElementById('addColumn');
-const container = document.querySelector('.trello__left');
+const container = document.querySelector('.trello__container');
 
 addColumnBtn.addEventListener('click', addColumn);
 
-function addColumn() {
-    container.innerHTML += `
-    
-    `;
+function addColumn(e) {
+    e.preventDefault();
 
-    container.insertAdjacentHTML('afterend',
+    container.insertAdjacentHTML('afterbegin',
         `
         <ul class="trello__list">
             <li class="trello__item trello-card">
                 <div class="trello-card__header">
-                    <textarea class="trello-card__title" placeholder="Ввести заголовок списка">Нужно сделать</textarea>
+                    <textarea class="trello-card__title" placeholder="Ввести заголовок списка">${input.value}</textarea>
                     <div class="trello-card__option">...</div>
                 </div>
                 <div class="trello-card__body">
