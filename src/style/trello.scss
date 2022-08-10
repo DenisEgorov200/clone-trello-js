@@ -1,0 +1,97 @@
+.trello {
+    height: 100vh;
+    width: 100%;
+    background: #0079bf;
+
+
+
+    &__container {
+        height: 100%;
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+    &__left {
+    }
+    &__list {
+        height: 100%;
+        display: inline-block;
+
+        &:not(:first-child) {
+            margin: 0 0 0 8px;
+        }
+    }
+    &__item {
+    }
+}
+
+.trello-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 100%;
+    padding: 10px;
+    background: #ebecf0;
+    border-radius: 3px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        min-height: 20px;
+        margin: 0 0 10px 0;
+    }
+    &__title {
+        width: 100%;
+        height: 25px;
+        padding: 4px 8px;
+        outline: none;
+        resize: none;
+        background: transparent;
+        border-width: 2px;
+        border-color: transparent;
+
+        &:focus {
+            border: 2px solid #0079bf;
+            background: #fff;
+        }
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+    &__option {
+    }
+    &__body {
+        margin: 0 0 10px 0;
+        min-height: 10px;
+    }
+    &__row {
+        max-width: 300px;
+        min-height: 20px;
+        padding: 6px 8px 2px;
+        display: block;
+        background-color: #fff;
+        border-radius: 3px;
+        box-shadow: 0 1px 0 #091e4240;
+        cursor: move;
+        user-select: none;   
+    }
+    &__row:not(:first-child) {
+        margin: 8px 0 0 0;
+    }
+    &__row.dragging {
+        opacity: 0.5;
+    }
+    &__edit {
+    }
+    &__footer {
+        padding: 6px 8px 2px;
+    }
+    &__add {
+    }
+    &__icon {
+    }
+    &__sample {
+    }
+}
