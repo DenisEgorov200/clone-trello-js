@@ -1,28 +1,13 @@
-# WEBPACK
+# Clone Trello JavaScript
 
-ссылка на youtube
-https://youtu.be/o8KMucDpSno
+## Технологии и библиотеки
+___
++ [webpack сборка](https://github.com/maksim-leskin/learn-wp)
+___
 
-Для установки пакетов используйте команду npm install
-
-## Команды
-
-### Запуск сервера для разработки
-```shell
-npm run start
+## Как установить
+___
 ```
-
-### Сборка проекта без оптимизации
-```shell
-npm run build:dev
+npm install
 ```
-
-### Сборка проекта с оптимизацией
-```shell
-npm run build:prod
-```
-
-### Очистка папки dist
-```shell
-npm run clear
-```
+___
