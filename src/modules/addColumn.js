@@ -47,4 +47,6 @@ function addColumn(e) {
         </ul>
         `
     );
+
+    input.value = '';
 }

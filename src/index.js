@@ -3,8 +3,9 @@ import './index.scss';
 import { mult, sum } from './modules/calc';
 import * as dragAndDrop from './modules/dragAndDrop';
 import { addColumnBtn } from './modules/addColumn';
-import * as autoResizeTitle from './modules/autoResizeTitle';
 import { addBtn } from './modules/addTitleColumn';
+import { autoResizeTitles } from './modules/autoResizeTitle';
+
 
 
 

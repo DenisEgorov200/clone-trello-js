@@ -1,6 +1,6 @@
 const addBtn = document.querySelector('.trello-add__btn');
 const closeBtn = document.querySelector('.trello-add__close');
-const input = document.querySelector('.trello-add__input');
+export const input = document.querySelector('.trello-add__input');
 const form = document.querySelector('.trello__btn');
 
 addBtn.addEventListener('click', toogleTitleColumn);
