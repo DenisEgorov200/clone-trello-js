@@ -1,5 +1,5 @@
-const draggables = document.querySelectorAll('.trello-card__row');
-const containers = document.querySelectorAll('.trello-card__body');
+export const draggables = document.querySelectorAll('.trello-card__row');
+export const containers = document.querySelectorAll('.trello-card__body');
 
 draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {
@@ -24,7 +24,7 @@ containers.forEach(container => {
     });
 });
 
-function getDragAfterElement(container, y) {
+export function getDragAfterElement(container, y) {
     const draggableElements = [...container.querySelectorAll('.trello-card__row:not(.dragging)')];
 
     return draggableElements.reduce((closest, child) => {

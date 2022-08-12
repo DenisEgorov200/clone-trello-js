@@ -1,20 +1,53 @@
-const addBtn = document.querySelector('.trello-add__btn');
-const closeBtn = document.querySelector('.trello-add__close');
-export const input = document.querySelector('.trello-add__input');
-const form = document.querySelector('.trello__btn');
+export const openBtns = document.querySelectorAll('.open-composer');
+export const container = document.querySelector('.trello__container');
+const closeBtns = document.querySelectorAll('.close-composer');
+// const form = document.querySelector('.composer');
 
-addBtn.addEventListener('click', toogleTitleColumn);
-closeBtn.addEventListener('click', removeTitleColumn);
+openBtns.forEach(openBtn => {
+    openBtn.addEventListener('click', event => {
+        const isIdle = event.target.closest('.composer');
+    
+        if (!isIdle) return;
+    
+        if (!container.contains(isIdle)) return;
+    
+        if (isIdle.classList.contains('is-idle')) {
+            isIdle.classList.remove('is-idle');
+            openBtn.style.display = 'none';
+        } else {
+            isIdle.classList.add('is-idle');
+            openBtn.style.display = 'block';
+        }
 
-function toogleTitleColumn(e) {
-    e.preventDefault();
-    form.classList.remove('is-idle');
-    addBtn.style.display = 'none';
-}
+        // isIdle.classList.remove('is-idle');
+        // openBtn.style.display = 'none';
 
-function removeTitleColumn(e) {
-    e.preventDefault();
 
-    form.classList.add('is-idle');
-    addBtn.style.display = 'block';
-}
+        closeBtns.forEach(closeBtn => {
+            closeBtn.addEventListener('click', event => {
+                const isIdle = event.target.closest('.composer');
+            
+                if (!isIdle) return;
+            
+                if (!container.contains(isIdle)) return;
+        
+                isIdle.classList.add('is-idle');
+                openBtn.style.display = 'block';
+            });
+        });
+    });
+});
+
+
+
+
+
+// function examination(event) {
+
+// }
+
+// function examination(event) {
+//     const isIdle = event.target.closest('.composer');
+
+//     console.log(isIdle);
+// }

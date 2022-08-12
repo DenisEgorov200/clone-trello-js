@@ -9,89 +9,106 @@
 <body>
 <div class="trello">
     <div class="trello__container">
-        <!-- <ul class="trello__list">
-            <li class="trello__item trello-card">
-                <div class="trello-card__header">
-                    <textarea class="trello-card__title" placeholder="Ввести заголовок списка">Нужно сделать</textarea>
-                    <div class="trello-card__option">...</div>
-                </div>
-                <div class="trello-card__body">
-                    <div class="trello-card__row" draggable="true">
-                        <p>Сделать клон trello</p>
-                        <div class="trello-card__edit">
-                            Edit
+        <div class="trello__left">
+            <ul class="trello__list">
+                <li class="trello__item trello-card">
+                    <div class="trello-card__header">
+                        <textarea class="trello-card__title auto-resize" placeholder="Ввести заголовок списка">Нужно сделать</textarea>
+                        <div class="trello-card__option">...</div>
+                    </div>
+                    <div class="trello-card__body">
+                        <div class="trello-card__row" draggable="true">
+                            <p>Сделать клон trello</p>
+                            <div class="trello-card__edit">
+                                Edit
+                            </div>
+                        </div>
+                        <div class="trello-card__row" draggable="true">
+                            <p>Сделать клон trello</p>
+                            <div class="trello-card__edit">
+                                Edit
+                            </div>
+                        </div>
+                        <div class="trello-card__row" draggable="true">
+                            <p>Сделать клон trello</p>
+                            <div class="trello-card__edit">
+                                Edit
+                            </div>
                         </div>
                     </div>
-                    <div class="trello-card__row" draggable="true">
-                        <p>Сделать клон trello</p>
-                        <div class="trello-card__edit">
-                            Edit
+                    <div class="trello-card__footer composer is-idle">
+                        <div class="trello-card__container">
+                            <textarea class="trello-card__textarea auto-resize"></textarea>
+                            <div class="trello-card__controls">
+                                <button class="trello-card__append">Добавить карточку</button>
+                                <button class="trello-card__close close-composer">x</button>
+                            </div>
+                        </div>
+                        <button class="trello-card__add open-composer">
+                            <span class="trello-card__icon">+</span>
+                            <span>Добавить карточку</span>
+                            <div class="trello-card__sample"></div>
+                        </button>
+                        
+                    </div>
+                </li>
+            </ul>
+            <ul class="trello__list">
+                <li class="trello__item trello-card">
+                    <div class="trello-card__header">
+                        <textarea class="trello-card__title auto-resize" placeholder="Ввести заголовок списка">Нужно сделать</textarea>
+                        <div class="trello-card__option">...</div>
+                    </div>
+                    <div class="trello-card__body">
+                        <div class="trello-card__row" draggable="true">
+                            <p>Сделать клон trello</p>
+                            <div class="trello-card__edit">
+                                Edit
+                            </div>
+                        </div>
+                        <div class="trello-card__row" draggable="true">
+                            <p>Сделать клон trello</p>
+                            <div class="trello-card__edit">
+                                Edit
+                            </div>
+                        </div>
+                        <div class="trello-card__row" draggable="true">
+                            <p>Сделать клон trello</p>
+                            <div class="trello-card__edit">
+                                Edit
+                            </div>
                         </div>
                     </div>
-                    <div class="trello-card__row" draggable="true">
-                        <p>Сделать клон trello</p>
-                        <div class="trello-card__edit">
-                            Edit
+                    <div class="trello-card__footer composer is-idle">
+                        <div class="trello-card__container">
+                            <textarea class="trello-card__textarea auto-resize"></textarea>
+                            <div class="trello-card__controls">
+                                <button class="trello-card__append">Добавить карточку</button>
+                                <button class="trello-card__close close-composer">x</button>
+                            </div>
                         </div>
+                        <button class="trello-card__add open-composer">
+                            <span class="trello-card__icon">+</span>
+                            <span>Добавить карточку</span>
+                            <div class="trello-card__sample"></div>
+                        </button>
+                        
                     </div>
-                </div>
-                <div class="trello-card__footer">
-                    <button class="trello-card__add">
-                        <span class="trello-card__icon">+</span>
-                        <span>Добавить карточку</span>
-                        <div class="trello-card__sample"></div>
-                    </button>
-                </div>
-            </li>
-        </ul>
-        <ul class="trello__list">
-            <li class="trello__item trello-card">
-                <div class="trello-card__header">
-                    <textarea class="trello-card__title" placeholder="Ввести заголовок списка">Нужно сделать</textarea>
-                    <div class="trello-card__option">...</div>
-                </div>
-                <div class="trello-card__body">
-                    <div class="trello-card__row" draggable="true">
-                        <p>Сделать клон trello</p>
-                        <div class="trello-card__edit">
-                            Edit
-                        </div>
-                    </div>
-                    <div class="trello-card__row" draggable="true">
-                        <p>Сделать клон trello</p>
-                        <div class="trello-card__edit">
-                            Edit
-                        </div>
-                    </div>
-                    <div class="trello-card__row" draggable="true">
-                        <p>Сделать клон trello</p>
-                        <div class="trello-card__edit">
-                            Edit
-                        </div>
-                    </div>
-                </div>
-                <div class="trello-card__footer">
-                    <button class="trello-card__add">
-                        <span class="trello-card__icon">+</span>
-                        <span>Добавить карточку</span>
-                        <div class="trello-card__sample"></div>
-                    </button>
-                </div>
-            </li>
-        </ul> -->
+                </li>
+            </ul>
+        </div>
 
-        <div class="trello__btn trello-add is-idle">
-            <form>
-                <button class="trello-add__btn">
-                    <span class="trello-add__icon">+</span>
-                    <span>Добавить еще одну колонку</span>
-                </button>
-                <input type="text" class="trello-add__input" placeholder="Ввести заголовок списка">
-                <div class="trello-add__controls">
-                    <button class="trello-add__card" id="addColumn">Добавить список</button>
-                    <button class="trello-add__close">x</button>
-                </div>                
-            </form>
+
+        <div class="trello__btn trello-add composer is-idle">
+            <button class="trello-add__btn open-composer">
+                <span class="trello-add__icon">+</span>
+                <span>Добавить еще одну колонку</span>
+            </button>
+            <input type="text" class="trello-add__input" placeholder="Ввести заголовок списка">
+            <div class="trello-add__controls">
+                <button class="trello-add__card" id="addColumn">Добавить список</button>
+                <button class="trello-add__close close-composer">x</button>
+            </div>          
         </div>
     </div>
 </div>
