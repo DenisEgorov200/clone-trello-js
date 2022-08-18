@@ -25,14 +25,25 @@
     &__item {
     }
     &__add {
-        height: 32px;
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        transform: translate(-50%);
+        display: inline-block;
+        padding: 10px;
+        background: $white;
+        color: $blue;
+        cursor: pointer;
+        border-radius: 8px;
+        outline: none;
+        border: none;
     }
 }
 
 .trello-card {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 300px;
     max-height: 100%;
     padding: 10px;
     background: $gray;
@@ -67,18 +78,32 @@
     &__option {
     }
     &__body {
-        // min-height: 10px;
+        min-height: 10px;
     }
     &__row {
-        max-width: 300px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        max-width: 100%;
         min-height: 20px;
         padding: 6px 8px 2px;
-        display: block;
         background-color: $white;
         border-radius: 3px;
         box-shadow: 0 1px 0 #091e4240;
         cursor: move;
-        user-select: none;   
+        user-select: none;
+        white-space: normal;
+
+        p {
+            word-wrap: break-word;
+            clear: both;
+            color: #172b4d;
+            display: block;
+            margin: 0 0 4px;
+            overflow: hidden;
+            text-decoration: none;
+        }
     }
     &__row:not(:first-child) {
         margin: 8px 0 0 0;
@@ -93,6 +118,7 @@
         margin: 10px 0 0 0;
     }
     &__container {
+        display: none;
     }
     &__textarea {
         width: 100%;
@@ -119,49 +145,40 @@
             width: 0;
         }
 
-        .is-idle & {
-            display: none;
-        }
     }
     &__controls {
-        .is-idle & {
-            display: none;
-        }
+    }
+    &__btn {
+        display: inline-block;
+        padding: 10px;
+        background: $blue;
+        color: $white;
+        cursor: pointer;
+        outline: none;
+        border: none;
     }
     &__add {
-
+        display: none;
+        padding: 10px;
+        background: $blue;
+        color: $white;
+        cursor: pointer;
+        border-radius: 3px;
+        outline: none;
+        border: none;
     }
-    &__close {
+    &__cancel {
+        display: inline-block;
+        padding: 10px;
+        background: $red;
+        color: $white;
+        cursor: pointer;
+        border-radius: 3px;
+        outline: none;
+        border: none;
     }
     &__icon {
     }
     &__sample {
-    }
-}
-
-
-.trello-add {
-    background-color: $gray;
-    border-radius: 3px;
-    padding: 4px;
-    transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
-    &__btn {
-        // display: block;
-    }
-    &__icon {
-    }
-    &__input {
-        .is-idle & {
-            display: none;
-        }
-    }
-    &__controls {
-        .is-idle & {
-            display: none;
-        }
-    }
-    &__card {
-    }
-    &__close {
     }
 }

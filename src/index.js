@@ -1,15 +1,6 @@
 import './index.html';
 import './index.scss';
-import {
-    addColumnBtn,
-    addColumn
-} from './modules/addColumn';
-import { openBtn } from './modules/addTitleColumn';
+import { addBoard } from './modules/addBoard';
 import { container } from './modules/autoResize';
-import {
-    draggables,
-    containers,
-    getDragAfterElement
-} from './modules/dragAndDrop';
-
-// import { addCardBtn } from './modules/addCard';
+import { addTask } from './modules/addTask';
+import { dragNdrop } from './modules/dragAndDrop';

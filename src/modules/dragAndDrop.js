@@ -1,39 +1,48 @@
-export const draggables = document.querySelectorAll('.trello-card__row');
-export const containers = document.querySelectorAll('.trello-card__body');
+let draggedItem = null;
 
-draggables.forEach(draggable => {
-    draggable.addEventListener('dragstart', () => {
-        draggable.classList.add('dragging');
-    });
+export function dragNdrop() {
+    const lists = document.querySelectorAll('.trello-card__body');
+    const listItems = document.querySelectorAll('.trello-card__row');
 
-    draggable.addEventListener('dragend', () => {
-        draggable.classList.remove('dragging');
-    });
-});
+    for (let i = 0; i < listItems.length; i++) {
+        const item = listItems[i];
 
-containers.forEach(container => {
-    container.addEventListener('dragover', e => {
-        e.preventDefault();
-        const afterElement = getDragAfterElement(container, e.clientY);
-        const draggable = document.querySelector('.dragging');
-        if (afterElement == null) {
-            container.appendChild(draggable);
-        } else {
-            container.insertBefore(draggable, afterElement);
+        item.addEventListener('dragstart', () => {
+            draggedItem = item;
+            setTimeout(() => {
+                item.style.display = 'none';
+            }, 0);
+        });
+
+        item.addEventListener('dragend', () => {
+            draggedItem = item;
+            setTimeout(() => {
+                item.style.display = 'block';
+                draggedItem = null;
+            }, 0);
+        });
+
+        for (let j = 0; j < lists.length; j++) {
+            const list = lists[j];
+
+            list.addEventListener('dragover', e => e.preventDefault());
+
+            list.addEventListener('dragenter', function (e) {
+                e.preventDefault();
+
+                this.style.backgroundColor = 'rgba(0,0,0,.3)';
+            });
+
+            list.addEventListener('dragleave', function () {
+                this.style.backgroundColor = 'rgba(0,0,0, 0)';
+            });
+
+            list.addEventListener('drop', function () {
+                this.style.backgroundColor = 'rgba(0,0,0, 0)';
+                this.append(draggedItem);
+            });
         }
-    });
-});
-
-export function getDragAfterElement(container, y) {
-    const draggableElements = [...container.querySelectorAll('.trello-card__row:not(.dragging)')];
-
-    return draggableElements.reduce((closest, child) => {
-        const box = child.getBoundingClientRect();
-        const offset = y - box.top - box.height / 2;
-        if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child };
-        } else {
-            return closest;
-        }
-    }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
 }
+
+dragNdrop();
