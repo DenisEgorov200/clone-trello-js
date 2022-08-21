@@ -1,12 +1,14 @@
 import { dragNdrop } from './dragAndDrop';
+import edit from '../img/edit.svg';
+import close from '../img/close.svg';
 
-export function addTask(taskFooter, taskBody, taskContainer, textareaValue) {
+export function addTask(taskFooter, taskBody, taskContainer, textareaValue, taskTitle) {
     taskFooter.addEventListener('click', addBtnTask);
     taskFooter.addEventListener('click', removeBtnTask);
     taskFooter.addEventListener('click', addTaskRow);
+    taskBody.addEventListener('click', openModal);
 
     function addTaskRow(event) {
-        const addTaskBtn = event.target.closest('.trello-card__footer').querySelector('.trello-card__btn');
         const addTask = event.target.closest('.trello-card__add');
     
         if (!addTask) return;
@@ -17,6 +19,9 @@ export function addTask(taskFooter, taskBody, taskContainer, textareaValue) {
             `
             <div class="trello-card__row" draggable="true">
                 <p>${textareaValue.value}</p>
+                <a href="#" class="trello-card__edit">
+                    <img src="${edit}" alt="edit">
+                </a>  
             </div>
             `
         );
@@ -61,4 +66,60 @@ export function addTask(taskFooter, taskBody, taskContainer, textareaValue) {
         addTask.style.display = 'none';
         textareaValue.value = '';
     }
+
+    const modal = document.querySelector('.modal');
+
+    function openModal(event) {
+        event.preventDefault();
+
+        const openModalBtn = event.target.closest('.trello-card__edit');
+
+        if (!openModalBtn) return;
+
+        if (!taskBody.contains(openModalBtn)) return;
+
+        modal.classList.add('modal__show');
+
+        modal.innerHTML = `
+            <div class="modal__container">
+                <div class="modal__content">
+                    <a href="#" class="modal__close">
+                        <img src="${close}" alt="close">
+                    </a>
+                    <div class="modal__header">
+                        <textarea class="modal__textarea auto-resize">${openModalBtn.previousElementSibling.textContent}</textarea>
+                        <div class="modal__col">В колонке ${taskTitle.value}</div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const textarea = modal.querySelector('textarea');
+
+        console.log(taskTitle.value);
+
+        const closeModalBtn = document.querySelector('.modal__close');
+        closeModalBtn.addEventListener('click', () => closeModal());
+        textarea.addEventListener('change', changeValue);
+
+        function changeValue() {
+            openModalBtn.previousElementSibling.textContent = textarea.value;
+        }
+    }
+
+    function closeModal() {
+        modal.classList.remove('modal__show');
+    }
+
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+    });
+
+    window.addEventListener("keydown", (e) => {
+        if (e.keyCode === 27) {
+          closeModal();
+        }
+    });
 }

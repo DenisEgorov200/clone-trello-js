@@ -1,8 +1,8 @@
 import { dragNdrop } from './dragAndDrop';
-// import { toggleBtnTask } from './toggleBtnTask';
 import { addTask } from './addTask';
+import { openModal } from './modal';
 
-export const addBoardBtn = document.getElementById('addBoard');
+const addBoardBtn = document.getElementById('addBoard');
 const container = document.querySelector('.trello__container');
 
 addBoardBtn.addEventListener('click', addBoard);
@@ -14,7 +14,7 @@ export function addBoard(event) {
     `
         <li class="trello__item trello-card">
             <div class="trello-card__header">
-                <textarea class="trello-card__title auto-resize" placeholder="Ввести заголовок списка" maxlength="150"></textarea>
+                <textarea class="trello-card__title auto-resize" placeholder="Ввести заголовок списка" maxlength="150">Заголовок</textarea>
                 <div class="trello-card__option">...</div>
             </div>
             <div class="trello-card__body">
@@ -40,8 +40,9 @@ export function addBoard(event) {
     const taskFooter = list.querySelector('.trello-card__footer');
     const taskContainer = list.querySelector('.trello-card__container');
     const taskBody = list.querySelector('.trello-card__body');
+    const taskTitle = list.querySelector('.trello-card__title');
     const textareaValue = list.querySelector('.trello-card__textarea');
 
-    addTask(taskFooter, taskBody, taskContainer, textareaValue);
+    addTask(taskFooter, taskBody, taskContainer, textareaValue, taskTitle);
     dragNdrop();
 }
