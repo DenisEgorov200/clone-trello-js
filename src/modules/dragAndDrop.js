@@ -1,6 +1,6 @@
 let draggedItem = null;
 
-export function dragNdrop() {
+function dragNdrop() {
     const lists = document.querySelectorAll('.trello-card__body');
     const listItems = document.querySelectorAll('.trello-card__row');
 
@@ -45,4 +45,4 @@ export function dragNdrop() {
     }
 }
 
-dragNdrop();
+export default dragNdrop;

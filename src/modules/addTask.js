@@ -1,8 +1,8 @@
-import { dragNdrop } from './dragAndDrop';
+import dragNdrop from './dragAndDrop';
 import edit from '../img/edit.svg';
 import close from '../img/close.svg';
 
-export function addTask(taskFooter, taskBody, taskContainer, textareaValue, taskTitle) {
+function addTask(taskFooter, taskBody, taskContainer, textareaValue, taskTitle) {
     taskFooter.addEventListener('click', addBtnTask);
     taskFooter.addEventListener('click', removeBtnTask);
     taskFooter.addEventListener('click', addTaskRow);
@@ -71,15 +71,15 @@ export function addTask(taskFooter, taskBody, taskContainer, textareaValue, task
 
     function openModal(event) {
         event.preventDefault();
-
+    
         const openModalBtn = event.target.closest('.trello-card__edit');
-
+    
         if (!openModalBtn) return;
-
+    
         if (!taskBody.contains(openModalBtn)) return;
-
+    
         modal.classList.add('modal__show');
-
+    
         modal.innerHTML = `
             <div class="modal__container">
                 <div class="modal__content">
@@ -90,36 +90,56 @@ export function addTask(taskFooter, taskBody, taskContainer, textareaValue, task
                         <textarea class="modal__textarea auto-resize">${openModalBtn.previousElementSibling.textContent}</textarea>
                         <div class="modal__col">В колонке ${taskTitle.value}</div>
                     </div>
+                    <div class="modal__footer">
+                        <button class="modal__delete btn btn-red">Удалить</button>
+                    </div>
                 </div>
             </div>
         `;
-
+    
         const textarea = modal.querySelector('textarea');
-
-        console.log(taskTitle.value);
-
+    
         const closeModalBtn = document.querySelector('.modal__close');
         closeModalBtn.addEventListener('click', () => closeModal());
         textarea.addEventListener('change', changeValue);
-
+    
         function changeValue() {
             openModalBtn.previousElementSibling.textContent = textarea.value;
+        }
+
+        modal.addEventListener('click', deleteTaskRow);
+
+        function deleteTaskRow(event) {
+            const deleteTask = event.target.closest('.modal__delete');
+        
+            if (!deleteTask) return;
+    
+            if (!modal.contains(deleteTask)) return;
+    
+            deleteRow();
+            closeModal();
+        }
+    
+        function deleteRow() {
+            openModalBtn.parentNode.remove();
         }
     }
 
     function closeModal() {
         modal.classList.remove('modal__show');
     }
-
+    
     window.addEventListener("click", (e) => {
         if (e.target === modal) {
           closeModal();
         }
     });
-
+    
     window.addEventListener("keydown", (e) => {
         if (e.keyCode === 27) {
           closeModal();
         }
     });
 }
+
+export default addTask;
