@@ -72,7 +72,6 @@
         box-shadow: 0 1px 0 #091e4240;
         margin-bottom: 8px;
 
-
         &:focus {
             border: 2px solid $blue;
             background: $white;
@@ -81,7 +80,5 @@
         &::-webkit-scrollbar {
             width: 0;
         }
-    }
-    &__col {
     }
 }

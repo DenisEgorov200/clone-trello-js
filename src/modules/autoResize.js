@@ -11,5 +11,3 @@ container.addEventListener('keyup', function(event) {
     let scHeight = event.target.scrollHeight;
     autoResize.style.height = `${scHeight}px`;
 });
-
-export default container;

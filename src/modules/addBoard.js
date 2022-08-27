@@ -44,15 +44,8 @@ function addBoard() {
     );
     container.append(list);
 
-    const taskFooter = list.querySelector('.trello-card__footer');
-    const taskContainer = list.querySelector('.trello-card__container');
-    const taskBody = list.querySelector('.trello-card__body');
-    const taskTitle = list.querySelector('.trello-card__title');
-    const textareaValue = list.querySelector('.trello-card__textarea');
-    const taskHeader = list.querySelector('.trello-card__header');
-
-    addTask(taskFooter, taskBody, taskContainer, textareaValue, taskTitle);
-    dropDownMenu(taskHeader);
+    addTask(list);
+    dropDownMenu(list);
     dragNdrop();
 }
 

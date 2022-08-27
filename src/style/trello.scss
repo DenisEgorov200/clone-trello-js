@@ -22,8 +22,6 @@
             margin: 0 8px 0 0;
         }
     }
-    &__item {
-    }
     &__add {
         position: absolute;
         left: 50%;
@@ -111,8 +109,6 @@
             margin: 0 0 10px 0;
         }
     }
-    &__btn {
-    }
     &__body {
         min-height: 10px;
     }
@@ -173,7 +169,6 @@
         }
     }
     &__footer {
-        // padding: 6px 8px 2px;
         margin: 10px 0 0 0;
     }
     &__container {
@@ -204,17 +199,7 @@
         }
 
     }
-    &__controls {
-    }
-    &__btn {
-    }
     &__add {
         display: none;
-    }
-    &__cancel {
-    }
-    &__icon {
-    }
-    &__sample {
     }
 }
