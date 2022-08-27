@@ -1,7 +1,7 @@
 .trello {
     height: 100vh;
     width: 100%;
-    background: $blue;
+    background: $color-accept;
 
     &__container {
         height: 100%;
@@ -22,8 +22,6 @@
             margin: 0 8px 0 0;
         }
     }
-    &__item {
-    }
     &__add {
         position: absolute;
         left: 50%;
@@ -38,7 +36,7 @@
     width: 300px;
     max-height: 100%;
     padding: 10px;
-    background: $gray;
+    background: $bg-color;
     border-radius: 3px;
 
     &__header {
@@ -61,7 +59,7 @@
         cursor: pointer;
 
         &:focus {
-            border: 2px solid $blue;
+            border: 2px solid $color-accept;
             background: $white;
         }
 
@@ -104,14 +102,16 @@
         overflow: hidden;
         width: 200px;
         z-index: 2;
+
+        &.open {
+            display: flex;
+        }
     }
     &__item {
 
         &:not(:last-child) {
             margin: 0 0 10px 0;
         }
-    }
-    &__btn {
     }
     &__body {
         min-height: 10px;
@@ -173,7 +173,6 @@
         }
     }
     &__footer {
-        // padding: 6px 8px 2px;
         margin: 10px 0 0 0;
     }
     &__container {
@@ -195,7 +194,7 @@
         margin-bottom: 8px;
 
         &:focus {
-            border: 2px solid $blue;
+            border: 2px solid $color-accept;
             background: $white;
         }
 
@@ -204,17 +203,7 @@
         }
 
     }
-    &__controls {
-    }
-    &__btn {
-    }
     &__add {
         display: none;
-    }
-    &__cancel {
-    }
-    &__icon {
-    }
-    &__sample {
     }
 }

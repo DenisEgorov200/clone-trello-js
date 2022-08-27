@@ -21,7 +21,7 @@ function addBoard() {
                 </div>
                 <ul class="trello-card__list">
                 <li class="trello-card__item">
-                    <button class="trello-card__delete btn btn-red">Удалить</button>
+                    <button class="trello-card__delete btn btn--red">Удалить</button>
                 </li>
             </ul>
             </div>
@@ -30,8 +30,8 @@ function addBoard() {
                 <div class="trello-card__container">
                     <textarea class="trello-card__textarea auto-resize" maxlength="150"></textarea>
                     <div class="trello-card__controls">
-                        <button class="trello-card__add btn btn-blue">Добавить карточку</button>
-                        <button class="trello-card__cancel btn btn-red">Отмена</button>
+                        <button class="trello-card__add btn btn--blue">Добавить карточку</button>
+                        <button class="trello-card__cancel btn btn--red">Отмена</button>
                     </div>
                 </div>
                 <button class="trello-card__btn btn">
@@ -44,15 +44,8 @@ function addBoard() {
     );
     container.append(list);
 
-    const taskFooter = list.querySelector('.trello-card__footer');
-    const taskContainer = list.querySelector('.trello-card__container');
-    const taskBody = list.querySelector('.trello-card__body');
-    const taskTitle = list.querySelector('.trello-card__title');
-    const textareaValue = list.querySelector('.trello-card__textarea');
-    const taskHeader = list.querySelector('.trello-card__header');
-
-    addTask(taskFooter, taskBody, taskContainer, textareaValue, taskTitle);
-    dropDownMenu(taskHeader);
+    addTask(list);
+    dropDownMenu(list);
     dragNdrop();
 }
 

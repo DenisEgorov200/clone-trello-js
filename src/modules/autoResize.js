@@ -8,8 +8,6 @@ container.addEventListener('keyup', function(event) {
     if (!container.contains(autoResize)) return;
 
     autoResize.style.height = 'auto';
-    let scHeight = event.target.scrollHeight;
+    const scHeight = event.target.scrollHeight;
     autoResize.style.height = `${scHeight}px`;
 });
-
-export default container;

@@ -2,7 +2,13 @@ import dragNdrop from './dragAndDrop';
 import edit from '../img/edit.svg';
 import close from '../img/close.svg';
 
-function addTask(taskFooter, taskBody, taskContainer, textareaValue, taskTitle) {
+function addTask(list) {
+    const taskFooter = list.querySelector('.trello-card__footer');
+    const taskContainer = list.querySelector('.trello-card__container');
+    const taskBody = list.querySelector('.trello-card__body');
+    const taskTitle = list.querySelector('.trello-card__title');
+    const textareaValue = list.querySelector('.trello-card__textarea');
+
     taskFooter.addEventListener('click', addBtnTask);
     taskFooter.addEventListener('click', removeBtnTask);
     taskFooter.addEventListener('click', addTaskRow);
@@ -33,7 +39,7 @@ function addTask(taskFooter, taskBody, taskContainer, textareaValue, taskTitle) 
     }
 
     function addBtnTask(event) {
-        const addTask = event.target.closest('.trello-card__footer').querySelector('.trello-card__add');
+        const addTask = taskFooter.querySelector('.trello-card__add');
         const addTaskBtn = event.target.closest('.trello-card__btn');
 
         if (!addTaskBtn) return;
@@ -53,8 +59,8 @@ function addTask(taskFooter, taskBody, taskContainer, textareaValue, taskTitle) 
     }
     
     function removeBtnTask(event) {
-        const addTaskBtn = event.target.closest('.trello-card__footer').querySelector('.trello-card__btn');
-        const addTask = event.target.closest('.trello-card__footer').querySelector('.trello-card__add');
+        const addTaskBtn = taskFooter.querySelector('.trello-card__btn');
+        const addTask = taskFooter.querySelector('.trello-card__add');
         const removeTaskBtn = event.target.closest('.trello-card__cancel');
 
         if (!removeTaskBtn) return;
@@ -88,10 +94,12 @@ function addTask(taskFooter, taskBody, taskContainer, textareaValue, taskTitle) 
                     </a>
                     <div class="modal__header">
                         <textarea class="modal__textarea auto-resize">${openModalBtn.previousElementSibling.textContent}</textarea>
-                        <div class="modal__col">В колонке ${taskTitle.value}</div>
+                        <div class="modal__col">
+                            <span>В колонке ${taskTitle.value}</span>
+                        </div>
                     </div>
                     <div class="modal__footer">
-                        <button class="modal__delete btn btn-red">Удалить</button>
+                        <button class="modal__delete btn btn--red">Удалить</button>
                     </div>
                 </div>
             </div>

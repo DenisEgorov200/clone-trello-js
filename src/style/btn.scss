@@ -1,34 +1,33 @@
 .btn {
     display: inline-block;
     padding: 10px;
-    background: $blue;
+    border-radius: 3px;
+    background: $color-accept;
     color: $white;
     cursor: pointer;
     outline: none;
     border: none;
 
-    &-blue {
-        border-radius: 3px;
+    &--blue {
         transition: background .3s ease-in-out;
 
         &:hover {
-            background: darken($color: $blue, $amount: 10);
+            background: darken($color: $color-accept, $amount: 10);
         }
     }
 
-    &-red {
-        background: $red;
-        border-radius: 3px;
+    &--red {
+        background: $color-cancel;
         transition: background .3s ease-in-out;
 
         &:hover {
-            background: darken($color: $red, $amount: 10);
+            background: darken($color: $color-cancel, $amount: 10);
         }
     }
 
-    &-white {
+    &--white {
         background: $white;
-        color: $blue;
+        color: $color-accept;
         border-radius: 8px;
         transition: background .3s ease-in-out;
 

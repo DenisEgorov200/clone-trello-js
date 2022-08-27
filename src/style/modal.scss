@@ -1,7 +1,7 @@
 .modal {
     display: none;
     position: fixed;
-    z-index: 100;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100%;
@@ -72,9 +72,8 @@
         box-shadow: 0 1px 0 #091e4240;
         margin-bottom: 8px;
 
-
         &:focus {
-            border: 2px solid $blue;
+            border: 2px solid $color-accept;
             background: $white;
         }
 
@@ -83,5 +82,7 @@
         }
     }
     &__col {
+        max-width: 100%;
+        word-wrap: break-word;
     }
 }

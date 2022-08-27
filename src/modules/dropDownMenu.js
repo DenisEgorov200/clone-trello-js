@@ -1,4 +1,6 @@
-function dropDownMenu(taskHeader) {
+function dropDownMenu(list) {
+    const taskHeader = list.querySelector('.trello-card__header');
+
     taskHeader.addEventListener('click', dropMenu);
     
     function dropMenu(event) {
