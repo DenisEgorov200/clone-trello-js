@@ -5,3 +5,4 @@ import container from './modules/autoResize';
 import addTask from './modules/addTask';
 import dragNdrop from './modules/dragAndDrop';
 // import openModal from './modules/modal';
+import dropDownMenu from './modules/dropDownMenu';

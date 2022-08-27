@@ -1,5 +1,7 @@
 import dragNdrop from './dragAndDrop';
 import addTask from './addTask';
+import dropDownMenu from './dropDownMenu';
+import option from '../img/option.svg';
 
 const addBoardBtn = document.getElementById('addBoard');
 const container = document.querySelector('.trello__container');
@@ -14,7 +16,14 @@ function addBoard() {
         <li class="trello__item trello-card">
             <div class="trello-card__header">
                 <textarea class="trello-card__title auto-resize" placeholder="Ввести заголовок списка" maxlength="150">Заголовок</textarea>
-                <div class="trello-card__option">...</div>
+                <div class="trello-card__option">
+                    <img src="${option}" alt="option">
+                </div>
+                <ul class="trello-card__list">
+                <li class="trello-card__item">
+                    <button class="trello-card__delete btn btn-red">Удалить</button>
+                </li>
+            </ul>
             </div>
             <div class="trello-card__body"></div>
             <div class="trello-card__footer">
@@ -40,8 +49,10 @@ function addBoard() {
     const taskBody = list.querySelector('.trello-card__body');
     const taskTitle = list.querySelector('.trello-card__title');
     const textareaValue = list.querySelector('.trello-card__textarea');
+    const taskHeader = list.querySelector('.trello-card__header');
 
     addTask(taskFooter, taskBody, taskContainer, textareaValue, taskTitle);
+    dropDownMenu(taskHeader);
     dragNdrop();
 }
 
